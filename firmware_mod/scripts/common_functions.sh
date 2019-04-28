@@ -261,7 +261,7 @@ http_server(){
 http_password(){
   user="root" # by default root until we have proper user management
   realm="all" # realm is defined in the lightppd.conf
-  pass=$1
+  pass="$1"
   hash=$(echo -n "$user:$realm:$pass" | md5sum | cut -b -32)
   echo "$user:$realm:$hash" > /system/sdcard/config/lighttpd.user
 }
